@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="468.02537944899876" y="45.36109030403425">Balance</node>
+    <node x="133.38036512032585" y="42.027756970700906">Status</node>
+    <node x="-51.78825200372431" y="-90.63890969596574">StatusSearch</node>
+    <node x="260.6367863860509" y="-95.30557636263241">StatusPeople</node>
+    <node x="372.7294994195025" y="297.12383613080385">Main</node>
+    <node x="600.3803651203259" y="45.36109030403425">ShareAction</node>
+    <node x="253.63678638605091" y="27.194423637367578">People</node>
+    <node x="233.235350791653" y="207.21401435146112">PeopleBlackDay</node>
+    <node x="-64.45491867039095" y="96.86109030403424">OilSociety</node>
+    <node x="446.69204611566545" y="207.21401435146112">PeopleTrade</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Main" target="OilSociety" relationship="CREATE">
+      <point x="-41.5" y="-0.0" />
+      <point x="6.545081329609047" y="311.62383613080385" />
+      <point x="-0.0" y="60.0" />
+    </edge>
+    <edge source="People" target="StatusPeople" relationship="TO_ONE">
+      <point x="-0.0" y="-60.0" />
+      <point x="329.6367863860509" y="-57.30557636263241" />
+      <point x="-69.0" y="-0.0" />
+    </edge>
+    <edge source="PeopleTrade" target="People" relationship="GENERALIZATION">
+      <point x="-67.00004611566544" y="3.6201406880564946E-4" />
+      <point x="428.99999999999994" y="221.7143763655299" />
+      <point x="428.99999999999994" y="87.19399999999997" />
+      <point x="76.00021361394909" y="-4.2363736760364645E-4" />
+    </edge>
+    <edge source="PeopleBlackDay" target="Balance" relationship="REALIZATION">
+      <point x="-3.507916530196553E-4" y="-14.500014351461118" />
+      <point x="311.73499999999996" y="176.99999999999997" />
+      <point x="519.0253794489988" y="176.99999999999997" />
+      <point x="-4.611566545520418E-5" y="14.499576362632393" />
+    </edge>
+    <edge source="Main" target="PeopleBlackDay" relationship="CREATE">
+      <point x="-31.494148627849484" y="-14.5" />
+      <point x="71.0" y="14.5" />
+    </edge>
+    <edge source="PeopleBlackDay" target="ShareAction" relationship="REALIZATION">
+      <point x="14.999649208347009" y="-14.500014351461118" />
+      <point x="326.73499999999996" y="192.0" />
+      <point x="665.3806666666667" y="192.0" />
+      <point x="3.0154634077916853E-4" y="14.499576362632407" />
+    </edge>
+    <edge source="Main" target="PeopleTrade" relationship="CREATE">
+      <point x="39.962546696162974" y="-14.5" />
+      <point x="-59.5" y="14.5" />
+    </edge>
+    <edge source="PeopleBlackDay" target="People" relationship="GENERALIZATION">
+      <point x="78.49964920834698" y="-1.4351461103956353E-5" />
+      <point x="428.99999999999994" y="221.71399999999997" />
+      <point x="428.99999999999994" y="87.19399999999997" />
+      <point x="76.00021361394909" y="-4.2363736760364645E-4" />
+    </edge>
+    <edge source="PeopleTrade" target="Status" relationship="REALIZATION">
+      <point x="14.999953884334545" y="14.499985648538882" />
+      <point x="528.692" y="177.20421899441433" />
+      <point x="201.0" y="177.20421899441433" />
+      <point x="201.0" y="177.0" />
+      <point x="178.38066666666663" y="177.0" />
+      <point x="3.0154634077916853E-4" y="14.499576362632421" />
+    </edge>
+    <edge source="OilSociety" target="Status" relationship="REALIZATION">
+      <point x="-0.0" y="-60.0" />
+      <point x="6.545081329609047" y="56.527756970700906" />
+      <point x="-45.0" y="-0.0" />
+    </edge>
+    <edge source="OilSociety" target="Balance" relationship="REALIZATION">
+      <point x="-15.0" y="-60.0" />
+      <point x="-8.454918670390953" y="9.694423637367578" />
+      <point x="519.0253794489988" y="9.694423637367578" />
+      <point x="-0.0" y="-14.5" />
+    </edge>
+    <edge source="PeopleTrade" target="ShareAction" relationship="REALIZATION">
+      <point x="14.999953884334545" y="-14.500014351461118" />
+      <point x="528.692" y="192.0" />
+      <point x="665.3806666666667" y="192.0" />
+      <point x="3.0154634077916853E-4" y="14.499576362632407" />
+    </edge>
+    <edge source="PeopleTrade" target="Balance" relationship="REALIZATION">
+      <point x="-4.611566545520418E-5" y="-14.500014351461118" />
+      <point x="513.692" y="154.45399999999998" />
+      <point x="519.0253333333333" y="154.45399999999998" />
+      <point x="-4.611566545520418E-5" y="14.499576362632393" />
+    </edge>
+    <edge source="PeopleBlackDay" target="Status" relationship="REALIZATION">
+      <point x="-23.23535079165299" y="-14.500014351461118" />
+      <point x="288.5" y="177.0" />
+      <point x="178.38066666666663" y="177.0" />
+      <point x="3.0154634077916853E-4" y="14.499576362632421" />
+    </edge>
+    <edge source="OilSociety" target="StatusSearch" relationship="TO_ONE">
+      <point x="-63.5" y="-60.0" />
+      <point x="-18.28825200372429" y="96.86109030403424" />
+      <point x="-18.28825200372429" y="-24.55557636263243" />
+      <point x="25.0" y="-24.55557636263243" />
+      <point x="8.78825200372431" y="36.63890969596574" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.5" showDependencies="true" x="299.3333333333333" y="125.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
