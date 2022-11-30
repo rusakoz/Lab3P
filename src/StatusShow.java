@@ -1,5 +1,3 @@
-import PeopleBlackDay;
-import PeopleTrade;
 
 public class StatusShow {
     private boolean g;
