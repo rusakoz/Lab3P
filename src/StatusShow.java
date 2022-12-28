@@ -2,22 +2,23 @@
 public class StatusShow {
     private boolean g;
     private boolean g2;
+
     StatusShow(){
     }
-    public void StatusTraders(PeopleTrade... a){
+    public void StatusTraders(People.PeopleTrade... a){
         int count3 = a.length;
         int count = 0;
-        for (PeopleTrade peopleTrade : a) {
+        for (People.PeopleTrade peopleTrade : a) {
             if (peopleTrade.getType() == StatusPeople.SMART) {
                 count += 1;
             }
         }
         this.g = count == count3;
     }
-    public void StatusBD(PeopleBlackDay... b){
+    public void StatusBD(People.PeopleBlackDay... b){
         int count4 = b.length;
         int count2 = 0;
-        for (PeopleBlackDay peopleBlackDay : b) {
+        for (People.PeopleBlackDay peopleBlackDay : b) {
             if (peopleBlackDay.getType() == StatusPeople.SMART) {
                 count2 += 1;
             }
