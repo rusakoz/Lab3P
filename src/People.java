@@ -7,17 +7,8 @@ public abstract class People {
     private StatusPeople Type;
     private Location location;
 
-    public People(){
-    }
     protected People(int SaveMoney, int NumberOfShare, StatusPeople type){
         this.name = "Неизвестный житель";
-        this.SaveMoney = SaveMoney;
-        this.NumberOfShare = NumberOfShare;
-        this.Type = type;
-    }
-
-    protected People(String name, int SaveMoney, int NumberOfShare, StatusPeople type){
-        this.name = name;
         this.SaveMoney = SaveMoney;
         this.NumberOfShare = NumberOfShare;
         this.Type = type;
@@ -67,21 +58,6 @@ public abstract class People {
         }
 
         @Override
-        public void BuyShare(int count, Society.OilSociety a) {
-
-        }
-
-        @Override
-        public void BuyShare(int count, Society.PlantSociety a) {
-
-        }
-
-        @Override
-        public void SellShare() {
-
-        }
-
-        @Override
         public void SellShare(int count, Society.OilSociety a){
             System.out.println("Я никогда не продам эти акции :(");
         }
@@ -107,7 +83,7 @@ public abstract class People {
         }
     }
 
-    public static class PeopleTrade extends People implements Status, Balance, ShareAction{
+    public static class PeopleTrade extends People implements Status, Balance, ShareAction, ChangeLocation{
 
         public PeopleTrade(int SaveMoney, int NumberOfShare, StatusPeople type){
             super(SaveMoney, NumberOfShare, type);
@@ -116,13 +92,17 @@ public abstract class People {
         public PeopleTrade(String name, int SaveMoney, int NumberOfShare, Location type){
             super(name, SaveMoney, NumberOfShare, type);
         }
-        public void ChangeLocation(Location location, Society.PlantSociety a) throws StatusSocietyException{
-            if(a.getType() == StatusSociety.OPEN & location == Location.PLANT_SOCIETY) {
-                super.setLocation(location);
-                System.out.println(getName()+" вошел в общество растений");
+        @Override
+        public void ChangeLocation(Location location) {
+            super.setLocation(location);
+            if(location.equals(Location.STREET)) {
+                System.out.println(getName() + " вышел на улицу");
             }
-            else{
-                throw new StatusSocietyException(getName()+" я не могу войти в общество растений");
+            if(location.equals(Location.PLANT_SOCIETY)) {
+                System.out.println(getName() + " пришел в общество растений");
+            }
+            if(location.equals(Location.BANK)) {
+                System.out.println(getName() + " пришел в банк");
             }
         }
 
@@ -139,11 +119,6 @@ public abstract class People {
         }
 
         @Override
-        public void BuyShare(int count, Society.PlantSociety a) {
-
-        }
-
-        @Override
         public void BuyShare(int count, Society.OilSociety a){
             if (super.getSaveMoney() >= count * a.getCost()) {
                 a.setBankShare(a.getBankShare() - count);
@@ -157,10 +132,6 @@ public abstract class People {
                 System.out.println("Житель-трейдер не имеет достаточно средств для покупки акций");
         }
 
-        @Override
-        public void SellShare() {
-
-        }
 
         @Override
         public void SellShare(int count, Society.OilSociety a){
@@ -201,20 +172,23 @@ public abstract class People {
         }
     }
 
-    public static class Shorty extends People implements Balance, ShareAction{
+    public static class Shorty extends People implements Balance, ShareAction, ChangeLocation{
 
         public Shorty(String name, int SaveMoney, int NumberOfShare, Location type){
             super(name, SaveMoney, NumberOfShare, type);
         }
 
         @Override
-        public void setLocation(Location location) {
+         public void ChangeLocation(Location location) {
             super.setLocation(location);
             if(location.equals(Location.STREET)) {
                 System.out.println(getName() + " вышел на улицу");
             }
             if(location.equals(Location.PLANT_SOCIETY)) {
                 System.out.println(getName() + " пришел в общество растений");
+            }
+            if(location.equals(Location.BANK)) {
+                System.out.println(getName() + " пришел в банк");
             }
         }
 
@@ -223,10 +197,6 @@ public abstract class People {
             System.out.println("Баланс денег: "+super.getSaveMoney()+"\nБаланс акций: "+super.getNumberOfShare());
         }
 
-        @Override
-        public void BuyShare(int count, Society.OilSociety a) {
-
-        }
 
         @Override
         public void BuyShare(int count, Society.PlantSociety a){
@@ -238,22 +208,11 @@ public abstract class People {
                 System.out.println(getName()+" купил "+count+" акций");
 
             }
+            else if (a.getCost() <= 0){
+                System.out.println(getName()+"Опять у них что-то сломалось");
+            }
             else
                 System.out.println(getName()+" не имеет достаточно средств для покупки акций");
-        }
-
-        @Override
-        public void SellShare() {
-
-        }
-
-        @Override
-        public void SellShare(int count, Society.OilSociety a){
-        }
-
-        @Override
-        public void BuyAllShare(Society.OilSociety a) {
-
         }
 
         @Override
@@ -293,7 +252,7 @@ public abstract class People {
         }
     }
 
-    public static class ActionExchanger extends People implements Balance{
+    public static class ActionExchanger extends People implements Balance, ChangeLocation{
 
         public ActionExchanger(String name, int SaveMoney, int NumberOfShare, Location type){
             super(name, SaveMoney, NumberOfShare, type);
@@ -304,13 +263,16 @@ public abstract class People {
         }
 
         @Override
-        public void setLocation(Location location) {
+        public void ChangeLocation(Location location) {
             super.setLocation(location);
-            if(location.equals(Location.BANK)) {
-                System.out.println(getName() + " пришел в банк");
+            if(location.equals(Location.STREET)) {
+                System.out.println(getName() + " вышел на улицу");
             }
             if(location.equals(Location.PLANT_SOCIETY)) {
                 System.out.println(getName() + " пришел в общество растений");
+            }
+            if(location.equals(Location.BANK)) {
+                System.out.println(getName() + " пришел в банк");
             }
         }
 

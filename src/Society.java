@@ -8,11 +8,6 @@ public abstract class Society {
 
     public Society(){}
 
-    public Society(int cost, int BankShare, int BankMoney){
-        this.Cost = cost;
-        this.BankShare = BankShare;
-        this.BankMoney = BankMoney;
-    }
 
     public Society(StatusSociety type, int cost, int BankShare, int BankMoney) {
         this.type = type;
@@ -26,13 +21,13 @@ public abstract class Society {
             super(type, cost, BankShare, BankMoney);
         }
 
-        @Override
-        public void setCost(int c) {
+        public void setRate(int cost) {
+            if (cost < 0) throw new ShareOilRateFatalException("Стоимость акций нефтяного общества не может быть меньше 0");
             if (getType().equals(StatusSociety.FOUND)) {
                 super.setCost(10);
                 System.out.println("Забил нефтяной фонтан и акции выросли до 10\nНефтяное общество утановило новую цену на акции: " + getCost() + " | " + toString());
             } else {
-                super.setCost(c);
+                super.setCost(cost);
                 System.out.println("Нефтяное общество утановило новую цену на акции: " + getCost() + " | " + toString());
             }
         }
@@ -83,7 +78,6 @@ public abstract class Society {
         public PlantSociety(StatusSociety type, int cost, int BankShare, int BankMoney){
             super(type, cost, BankShare, BankMoney);
         }
-        public PlantSociety(){}
 
         @Override
         public void setType(StatusSociety type) {
@@ -112,8 +106,8 @@ public abstract class Society {
                     getType() == man.getType();
         }
 
-        @Override
-        public void setCost(int cost) {
+        public void setRate(int cost) throws ShareRateException {
+            if (cost <= 0) throw new ShareRateException(cost);
             super.setCost(cost);
             System.out.println("Общество растений установило цену на акции: "+cost+" | "+toString());
         }
