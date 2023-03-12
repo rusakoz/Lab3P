@@ -332,9 +332,6 @@ public abstract class People {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Location getLocation() {
         return location;

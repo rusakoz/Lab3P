@@ -6,8 +6,6 @@ public abstract class Society {
     private int BankShare;
     private int BankMoney;
 
-    public Society(){}
-
 
     public Society(StatusSociety type, int cost, int BankShare, int BankMoney) {
         this.type = type;
