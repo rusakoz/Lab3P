@@ -1,9 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         People.PeopleBlackDay peopleOne = new People.PeopleBlackDay(51, 0, StatusPeople.STUPID);
-        People.PeopleBlackDay peopleTwo = new People.PeopleBlackDay(541, 0, StatusPeople.STUPID);
         People.PeopleTrade trader = new People.PeopleTrade(541, 0, StatusPeople.STUPID);
-        People.PeopleTrade traderTwo = new People.PeopleTrade("Ruslan", 541, 0, Location.STREET);
+        People.PeopleTrade traderTwo = new People.PeopleTrade("NoName", 541, 0, Location.STREET);
         People.Shorty Shorty = new People.Shorty("Коротышка", 5351, 0, Location.STREET);
         People.ActionSellers Neznaika = new People.ActionSellers("Незнайка", 5351, 0, Location.PLANT_SOCIETY);
         People.ActionSellers Kozlik = new People.ActionSellers("Козлик", 5351, 0, Location.PLANT_SOCIETY);
@@ -28,18 +27,13 @@ public class Main {
         Miga.ChangeLocation(Location.BANK);
         Miga.MoneyExchange(bank);
         bank.ShowBalance();
-        plantSociety.setType(StatusSociety.CLOSE);
         Miga.ChangeLocation(Location.PLANT_SOCIETY);
 
         traderTwo.ChangeLocation(Location.PLANT_SOCIETY);
 
         trader.ChangeStatus();
         peopleOne.ChangeStatus();
-        peopleTwo.ChangeStatus();
-
-        statusShow.StatusTraders(trader);
-        statusShow.StatusBD(peopleOne, peopleTwo);
-        statusShow.CheckStatusPeople();
+        statusShow.StatusPeople(trader, peopleOne);
 
             oilSociety.setRate(1);
             trader.BuyShare(5, oilSociety);
@@ -68,8 +62,6 @@ public class Main {
             trader.ShowBalance();
             peopleOne.BuyAllShare(oilSociety);
             peopleOne.ShowBalance();
-            peopleTwo.BuyAllShare(oilSociety);
-            peopleTwo.ShowBalance();
 
             oilSociety.SellAllShare();
             oilSociety.ShowBalance();

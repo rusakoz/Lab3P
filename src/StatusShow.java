@@ -1,35 +1,10 @@
 
 public class StatusShow {
-    private boolean g;
-    private boolean g2;
-
     StatusShow(){
     }
-    public void StatusTraders(People.PeopleTrade... a){
-        int count3 = a.length;
-        int count = 0;
-        for (People.PeopleTrade peopleTrade : a) {
-            if (peopleTrade.getType() == StatusPeople.SMART) {
-                count += 1;
-            }
-        }
-        this.g = count == count3;
-    }
-    public void StatusBD(People.PeopleBlackDay... b){
-        int count4 = b.length;
-        int count2 = 0;
-        for (People.PeopleBlackDay peopleBlackDay : b) {
-            if (peopleBlackDay.getType() == StatusPeople.SMART) {
-                count2 += 1;
-            }
-        }
-        this.g2 = count2 == count4;
-    }
-    public void CheckStatusPeople(){
-        if(this.g == this.g2){
+    public void StatusPeople(People.PeopleTrade b, People.PeopleBlackDay a){
+        if(b.getType().equals(StatusPeople.SMART) & a.getType().equals(StatusPeople.SMART)){
             System.out.println("Жители поняли, что акции со временем дорожают");
         }
-        else
-            System.out.println("Жители не поняли :(");
     }
 }

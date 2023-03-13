@@ -8,7 +8,7 @@ public class Bank implements Balance{
     }
     private class Storage {
         public void CapacityStorage() {
-            System.out.println("Хранилище заполнено на " + getMoney() + " из " + getSizeStorage());
+            System.out.println("Хранилище банка заполнено на " + getMoney() + " из " + getSizeStorage());
         }
     }
 
